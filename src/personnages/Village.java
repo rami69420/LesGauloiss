@@ -59,18 +59,18 @@ public class Village {
 		// pas d'habitant à l'indice 30.
 		// Les indices valides vont de 0 à 29 pour un tableau de 30 éléments. L'indice
 		// 30 est hors limite.
-		
+
 		// créer le chef du village Abraracourcix et l'ajouter au village
 		Chef abraracourcix = new Chef("Abraracourcix", 6, village);
 		village.setChef(abraracourcix);
-		
+
 		// créer et ajouter au village les personnages
 		Gaulois asterix = new Gaulois("Astérix", 8);
 		village.ajouterHabitant(asterix);
-		
+
 		Gaulois obelix = new Gaulois("Obélix", 25);
 		village.ajouterHabitant(obelix);
-		
+
 		village.afficherVillageois();
 		// Gaulois gaulois = village.trouverHabitant(1);
 		// System.out.println(gaulois);
@@ -80,6 +80,22 @@ public class Village {
 		// ajouté.
 		// Afficherait null ou un message d'erreur car à l'indice 1 il n'y a pas encore
 		// d'habitant.
-		
+
+	}
+
+	public void afficherVillageois() {
+		// Vérifier d'abord si un chef a été assigné au village
+		if (chef != null) {
+			System.out.println("Dans le village du chef " + chef.getNom() + " vivent les légendaires gaulois :");
+		} else {
+			System.out.println("Dans le village vivent les légendaires gaulois :");
+		}
+
+		// Afficher les noms de tous les villageois ajoutés au village
+		for (int i = 0; i < nbVillageois; i++) {
+			if (villageois[i] != null) { // Cette vérification est pour s'assurer qu'il n'y a pas de valeurs null
+				System.out.println("- " + villageois[i].getNom());
+			}
+		}
 	}
 }
